@@ -8,8 +8,6 @@ import java.lang.reflect.Modifier;
 import java.util.Arrays;
 import java.util.Comparator;
 
-import net.minecraft.src.mod_BitmapFont;
-
 /**
  * プロパティファイルを簡単に扱うためのクラス
  * 

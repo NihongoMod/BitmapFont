@@ -288,11 +288,6 @@ public class BitmapFontRenderer {
 		if (bc == null)
 			return 0f;
 
-		float s0 = (float) bc.x / font.imgWidth;
-		float t0 = (float) bc.y / font.imgHeight;
-		float s1 = s0 + (float) bc.width / font.imgWidth;
-		float t1 = t0 + (float) bc.height / font.imgHeight;
-
 		float x0 = bc.xOffset * calcedScale;
 		float y0 = bc.yOffset * calcedScale - calcedBaseLine;
 		float x1 = x0 + bc.width * calcedScale;
@@ -300,13 +295,13 @@ public class BitmapFontRenderer {
 		
 		GL11.glBindTexture(GL11.GL_TEXTURE_2D, font.texturePages[bc.page]);
 		GL11.glBegin(GL11.GL_TRIANGLE_STRIP);
-		GL11.glTexCoord2f(s0, t0);
+		GL11.glTexCoord2f(bc.s0, bc.t0);
 		GL11.glVertex3f(x0, y0, 0.0F);
-		GL11.glTexCoord2f(s0, t1);
+		GL11.glTexCoord2f(bc.s0, bc.t1);
 		GL11.glVertex3f(x0, y1, 0.0F);
-		GL11.glTexCoord2f(s1, t0);
+		GL11.glTexCoord2f(bc.s1, bc.t0);
 		GL11.glVertex3f(x1, y0, 0.0F);
-		GL11.glTexCoord2f(s1, t1);
+		GL11.glTexCoord2f(bc.s1, bc.t1);
 		GL11.glVertex3f(x1, y1, 0.0F);
 		GL11.glEnd();
 
